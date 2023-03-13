@@ -177,9 +177,7 @@ open finset -- `finset.range n` is the finite set `{0,1,..., n-1}`
 -- Demonstrate autocompletion
 example (f : ℕ → ℝ) (n : ℕ) :
   57 + ∑ i in range (n+1), f i = 57 + f n + ∑ i in range n, f i :=
-begin
-  sorry
-end
+by rw [range_succ, sum_insert not_mem_range_self, add_assoc]
 
 
 
@@ -220,7 +218,7 @@ namespace add_subgroup
 variables {A : Type*} [add_comm_group A]
 
 lemma normal_of_add_comm_group (H : add_subgroup A) : normal H :=
-by sorry
+{ conj_mem := by simp }
 
 end add_subgroup
 
@@ -241,7 +239,11 @@ variables {K L : Type*} [field K] [field L] [algebra K L] [finite_dimensional K 
 
 lemma is_algebraic_of_finite_dimensional : is_algebraic K L :=
 begin
-  sorry
+  intro x,
+  rw is_algebraic_iff_is_integral,
+  apply is_integral_of_noetherian,
+  rw is_noetherian.iff_fg,
+  exact _inst_4,
 end
 
 end algebra
