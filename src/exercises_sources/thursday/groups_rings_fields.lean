@@ -177,9 +177,7 @@ open finset -- `finset.range n` is the finite set `{0,1,..., n-1}`
 -- Demonstrate autocompletion
 example (f : ℕ → ℝ) (n : ℕ) :
   57 + ∑ i in range (n+1), f i = 57 + f n + ∑ i in range n, f i :=
-begin
-  sorry
-end
+by rw [range_succ, sum_insert not_mem_range_self, add_assoc]
 
 
 
