@@ -220,7 +220,9 @@ namespace add_subgroup
 variables {A : Type*} [add_comm_group A]
 
 lemma normal_of_add_comm_group (H : add_subgroup A) : normal H :=
-{ conj_mem := by simp }
+begin
+  sorry
+end
 
 end add_subgroup
 
