@@ -272,29 +272,25 @@ begin
   * `nat.prime.dvd_choose_self`
   * `fact.out p.prime` obtains the primality of `p` from the typeclass assumption `[fact p.prime]`
   -/
-  sorry
+  rw [add_pow, finset.sum_range_succ, finset.sum_eq_single 0 _ _],
+  { simp [add_comm], },
+  { intros n np n0,
+    have : p ∣ p.choose n :=
+      nat.prime.dvd_choose_self (nat.pos_of_ne_zero n0) (mem_range.mp np) (fact.out _),
+    rw [(char_p.cast_eq_zero_iff K p _).mpr this, mul_zero], },
+  intro h0,
+  exfalso,
+  apply h0,
+  rw mem_range,
+  exact nat.prime.pos (fact.out _),
 end
 
 def frobenius_hom : K →+* K :=
 { to_fun := λ x, x^p,
-  map_zero' :=
-  begin
-    -- Hint: `zero_pow`, search for lemmas near `nat.prime`
-    sorry
-  end,
-  map_one' :=
-  begin
-    sorry
-  end,
-  map_mul' :=
-  begin
-    sorry
-  end,
-  map_add' :=
-  begin
-    -- Hint: `add_pow_char` -- can you prove that one yourself?
-    sorry
-  end }
+  map_zero' := zero_pow (nat.prime.pos (fact.out _)),
+  map_one' := one_pow _,
+  map_mul' := λ x y, mul_pow _ _ _,
+  map_add' := λ x y, add_pow_char' _ _ _ _ }
 
 end
 
