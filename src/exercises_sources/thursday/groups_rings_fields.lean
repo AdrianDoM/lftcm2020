@@ -258,6 +258,11 @@ section
 variables (p : ℕ) [fact p.prime]
 variables (K : Type*) [field K] [char_p K p]
 
+#check finset.sum_eq_single
+#check char_p.cast_eq_zero_iff
+#check nat.prime.dvd_choose_self
+#check add_pow_char
+
 /-! ### Subchallenge -/
 lemma add_pow_char' (x y : K) : (x + y) ^ p = x ^ p + y ^ p :=
 begin
@@ -272,7 +277,17 @@ begin
   * `nat.prime.dvd_choose_self`
   * `fact.out p.prime` obtains the primality of `p` from the typeclass assumption `[fact p.prime]`
   -/
-  sorry
+  rw [add_pow, finset.sum_range_succ, finset.sum_eq_single 0 _ _],
+  { simp [add_comm], },
+  { intros n np n0,
+    have : p ∣ p.choose n :=
+      nat.prime.dvd_choose_self (nat.pos_of_ne_zero n0) (mem_range.mp np) (fact.out _),
+    rw [(char_p.cast_eq_zero_iff K p _).mpr this, mul_zero], },
+  intro h0,
+  exfalso,
+  apply h0,
+  rw mem_range,
+  exact nat.prime.pos (fact.out _),
 end
 
 def frobenius_hom : K →+* K :=
