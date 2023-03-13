@@ -220,9 +220,7 @@ namespace add_subgroup
 variables {A : Type*} [add_comm_group A]
 
 lemma normal_of_add_comm_group (H : add_subgroup A) : normal H :=
-begin
-  sorry
-end
+by sorry
 
 end add_subgroup
 
@@ -257,11 +255,6 @@ In this exercise we will define the Frobenius morphism.
 section
 variables (p : ℕ) [fact p.prime]
 variables (K : Type*) [field K] [char_p K p]
-
-#check finset.sum_eq_single
-#check char_p.cast_eq_zero_iff
-#check nat.prime.dvd_choose_self
-#check add_pow_char
 
 /-! ### Subchallenge -/
 lemma add_pow_char' (x y : K) : (x + y) ^ p = x ^ p + y ^ p :=
