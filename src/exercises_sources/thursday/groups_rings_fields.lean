@@ -292,24 +292,10 @@ end
 
 def frobenius_hom : K →+* K :=
 { to_fun := λ x, x^p,
-  map_zero' :=
-  begin
-    -- Hint: `zero_pow`, search for lemmas near `nat.prime`
-    sorry
-  end,
-  map_one' :=
-  begin
-    sorry
-  end,
-  map_mul' :=
-  begin
-    sorry
-  end,
-  map_add' :=
-  begin
-    -- Hint: `add_pow_char` -- can you prove that one yourself?
-    sorry
-  end }
+  map_zero' := zero_pow (nat.prime.pos (fact.out _)),
+  map_one' := one_pow _,
+  map_mul' := λ x y, mul_pow _ _ _,
+  map_add' := λ x y, add_pow_char' _ _ _ _ }
 
 end
 
