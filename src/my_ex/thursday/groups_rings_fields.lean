@@ -178,7 +178,8 @@ open finset -- `finset.range n` is the finite set `{0,1,..., n-1}`
 example (f : ℕ → ℝ) (n : ℕ) :
   57 + ∑ i in range (n+1), f i = 57 + f n + ∑ i in range n, f i :=
 begin
-  sorry
+  ring,
+
 end
 
 
@@ -442,4 +443,3 @@ begin
 end
 
 end
-
