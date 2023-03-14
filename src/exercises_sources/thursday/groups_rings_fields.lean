@@ -227,6 +227,7 @@ begin
   rintros n Hn g,
   rw add_comm,
   rw ← add_assoc,
+  -- hello darkness my old friend
 end
 
 end add_subgroup
