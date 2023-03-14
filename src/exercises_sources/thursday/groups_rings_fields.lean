@@ -129,7 +129,9 @@ To give an idea:
 
 -/
 
-
+/-
+Here's a comment.
+-/
 
 /-! ## How to find things (search tools)
 
@@ -435,4 +437,3 @@ begin
 end
 
 end
-
