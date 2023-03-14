@@ -22,7 +22,10 @@ open_locale topological_space filter classical real
 Lean can automatically compute some simple derivatives using `simp` tactic.
 -/
 
-example : deriv (λ x : ℝ, x^5) 6 = 5 * 6^4 := sorry
+example : deriv (λ x : ℝ, x^5) 6 = 5 * 6^4 :=
+begin
+  simp,
+end
 
 example (x₀ : ℝ) (h₀ : x₀ ≠ 0) : deriv (λ x:ℝ, 1 / x) x₀ = -1 / x₀^2 := sorry
 
