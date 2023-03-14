@@ -275,6 +275,8 @@ begin
   sorry
 end
 
+-- Armadillos are really cool
+
 def frobenius_hom : K →+* K :=
 { to_fun := λ x, x^p,
   map_zero' :=
