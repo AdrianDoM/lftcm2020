@@ -31,6 +31,7 @@ import tactic
 -/
 
 
+--- This is a comment by Patrick!
 
 /-! ## Reminder on updating the exercises
 
@@ -436,4 +437,3 @@ begin
 end
 
 end
-
