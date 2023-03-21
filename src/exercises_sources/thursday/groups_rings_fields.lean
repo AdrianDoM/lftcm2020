@@ -31,7 +31,7 @@ import tactic
 -/
 
 
---- This is a TOTALLY DIFFERENT comment by Patrick!
+--- This is a COMPLETELY DIFFERENT comment by Simone!
 
 /-! ## Reminder on updating the exercises
 
